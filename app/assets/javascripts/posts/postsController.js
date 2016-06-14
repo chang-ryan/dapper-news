@@ -4,7 +4,7 @@
   app.controller("PostsController", ['$scope', 'posts', 'post',
     function($scope, posts, post) {
       $scope.post = post; // from posts state post resolve
-      $scope.addComment = function(){
+      $scope.addComment = function() {
         if($scope.body === '') { return; }
         posts.addComment(post.id, {
           body: $scope.body,
@@ -13,6 +13,9 @@
           $scope.post.comments.push(comment);
         });
         $scope.body = '';
+      };
+      $scope.incrementUpvotes = function(comment) {
+        posts.upvoteComment(post, comment);
       };
     }
   ]);
