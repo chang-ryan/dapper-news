@@ -2,6 +2,7 @@
   var app = angular.module("dapperNews", [
     'ui.router',
     'templates',
+    'Devise',
     'posts',
     'MainController-module',
     'PostsController-module'
