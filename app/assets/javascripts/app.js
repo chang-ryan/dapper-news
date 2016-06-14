@@ -12,7 +12,12 @@
       $stateProvider.state('home', {
         url: '/home',
         templateUrl: 'home/_home.html',
-        controller: 'MainController'
+        controller: 'MainController',
+        resolve: {
+          postPromise: ['posts', function(posts){
+            return posts.getAll();
+          }]
+        }
       });
       $stateProvider.state('posts', {
         url: '/posts/{id}',

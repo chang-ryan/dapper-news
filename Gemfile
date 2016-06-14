@@ -37,3 +37,5 @@ group :development do
 end
 
 gem 'angular-rails-templates'
+gem 'responders', '~> 2.0'
+gem 'angular_rails_csrf'
