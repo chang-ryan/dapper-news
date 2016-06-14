@@ -5,7 +5,9 @@
     'Devise',
     'posts',
     'MainController-module',
-    'PostsController-module'
+    'PostsController-module',
+    'NavController-module',
+    'AuthController-module'
   ]);
 
   app.config(['$stateProvider','$urlRouterProvider',
