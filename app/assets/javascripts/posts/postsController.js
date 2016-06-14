@@ -1,15 +1,16 @@
 (function() {
   var app = angular.module("PostsController-module", []);
 
-  app.controller("PostsController", ['$scope', '$stateParams', 'posts',
-    function($scope, $stateParams, posts) {
-      $scope.post = posts.posts[$stateParams.id];
+  app.controller("PostsController", ['$scope', 'posts', 'post',
+    function($scope, posts, post) {
+      $scope.post = post; // from posts state post resolve
       $scope.addComment = function(){
         if($scope.body === '') { return; }
-        $scope.post.comments.push({
+        posts.addComment(post.id, {
           body: $scope.body,
           author: 'user',
-          upvotes: 0
+        }).success(function(comment) {
+          $scope.post.comments.push(comment);
         });
         $scope.body = '';
       };
