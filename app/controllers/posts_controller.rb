@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!, only: [:create, :upvote]
+
   def index
     respond_with Post.all
   end
