@@ -4,7 +4,7 @@
   app.controller("MainController", ['$scope', 'posts',
     function($scope, posts) {
       $scope.posts = posts.posts;
-      $scope.addPost = function(){
+      $scope.addPost = function() {
         if(!$scope.title || $scope.title === '') { return; }
         posts.create({
           title: $scope.title,

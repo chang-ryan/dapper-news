@@ -22,6 +22,16 @@
           }]
         }
       });
+      $stateProvider.state('posts', {
+        url: '/posts/{id}',
+        templateUrl: 'posts/_posts.html',
+        controller: 'PostsController',
+        resolve: {
+          post: ['$stateParams', 'posts', function($stateParams, posts) {
+            return posts.get($stateParams.id);
+          }]
+        }
+      });
       $stateProvider.state('login', {
         url: '/login',
         templateUrl: 'auth/_login.html',
